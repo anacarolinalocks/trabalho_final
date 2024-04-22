@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Books API Example</title>
+</head>
+<body>
+    <h1>Google Books API Example</h1>
+    <input type="text" id="searchInput" placeholder="Digite o título do livro">
+    <button onclick="searchBooks()">Buscar Livro</button>
+    <div id="results"></div>
+
+    <script>
+        function searchBooks() {
+            var searchInput = document.getElementById('searchInput').value;
+            var url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    displayResults(data);
+                })
+                .catch(error => console.error('Erro ao buscar livros:', error));
+        }
+
+        function displayResults(data) {
+            var results = document.getElementById('results');
+            results.innerHTML = '';
+
+            data.items.forEach(item => {
+                var link = item.selfLink;
+                var title = item.volumeInfo.title;
+                var authors = item.volumeInfo.authors;
+                var thumbnail = item.volumeInfo.imageLinks.thumbnail;
+
+                var bookDiv = document.createElement('div');
+                bookDiv.innerHTML = '<h2>' + title + '</h2>';
+
+                if (authors) {
+                    bookDiv.innerHTML += '<p>Autores: ' + authors.join(', ') + '</p>';
+                }
+
+                if (thumbnail) {
+                    bookDiv.innerHTML += '<img src="' + thumbnail + '" alt="Capa do Livro">';
+                }
+
+                results.appendChild(bookDiv);
+            });
+            
+        }
+    </script>
+</body>
+</html>
