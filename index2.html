@@ -13,8 +13,8 @@
 
     <script>
         function searchBooks() {
-            var searchInput = document.getElementById('searchInput').value;
-            var url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
+            let searchInput = document.getElementById('searchInput').value;
+            let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
 
             fetch(url)
                 .then(response => response.json())
@@ -25,16 +25,16 @@
         }
 
         function displayResults(data) {
-            var results = document.getElementById('results');
+            let results = document.getElementById('results');
             results.innerHTML = '';
 
             data.items.forEach(item => {
-                var link = item.selfLink;
-                var title = item.volumeInfo.title;
-                var authors = item.volumeInfo.authors;
-                var thumbnail = item.volumeInfo.imageLinks.thumbnail;
+                let link = item.selfLink;
+                let title = item.volumeInfo.title;
+                let authors = item.volumeInfo.authors;
+                let thumbnail = item.volumeInfo.imageLinks.thumbnail;
 
-                var bookDiv = document.createElement('div');
+                let bookDiv = document.createElement('div');
                 bookDiv.innerHTML = '<h2>' + title + '</h2>';
 
                 if (authors) {
