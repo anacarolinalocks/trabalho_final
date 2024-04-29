@@ -9,7 +9,7 @@
     <h1>Google Books API Example</h1>
     <input type="text" id="searchInput" placeholder="Digite o título do livro">
     <button onclick="searchBooks()">Buscar Livro</button>
-    <div id="results"></div>
+     <div id="results"></div>
 
     <script>
         function searchBooks() {
@@ -30,6 +30,8 @@
 
             data.items.forEach(item => {
                 let link = item.selfLink;
+
+                //console.log(link)
                 let title = item.volumeInfo.title;
                 let authors = item.volumeInfo.authors;
                 let thumbnail = item.volumeInfo.imageLinks.thumbnail;
@@ -42,8 +44,10 @@
                 }
 
                 if (thumbnail) {
-                    bookDiv.innerHTML += '<img src="' + thumbnail + '" alt="Capa do Livro">';
-                }
+                    //cria uma tag a no html p poder fazer a imagem redirecionar para os pdfs
+                    bookDiv.innerHTML += `<a href="${link}"> <img src="${thumbnail}" alt="Capa do Livro"> </a>`; //cria a imagem do livro com o link junto
+                    //innerHTLM leva um elemento html pro index.html
+                    }
 
                 results.appendChild(bookDiv);
             });
