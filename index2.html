@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Books API Example</title>
+    <title>Young Readers</title>
 </head>
 <body>
-    <h1>Google Books API Example</h1>
+    <h1>Young Readers</h1>
     <input type="text" id="searchInput" placeholder="Digite o título do livro">
     <button onclick="searchBooks()">Buscar Livro</button>
-     <div id="results"></div>
+    <div id="results"></div>
 
     <script>
         function searchBooks() {
@@ -19,39 +19,9 @@
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    displayResults(data);
+                    displayResults(data.items);
                 })
                 .catch(error => console.error('Erro ao buscar livros:', error));
-        }
-
-        function displayResults(data) {
-            let results = document.getElementById('results');
-            results.innerHTML = '';
-
-            data.items.forEach(item => {
-                let link = item.selfLink;
-
-                //console.log(link)
-                let title = item.volumeInfo.title;
-                let authors = item.volumeInfo.authors;
-                let thumbnail = item.volumeInfo.imageLinks.thumbnail;
-
-                let bookDiv = document.createElement('div');
-                bookDiv.innerHTML = '<h2>' + title + '</h2>';
-
-                if (authors) {
-                    bookDiv.innerHTML += '<p>Autores: ' + authors.join(', ') + '</p>';
-                }
-
-                if (thumbnail) {
-                    //cria uma tag a no html p poder fazer a imagem redirecionar para os pdfs
-                    bookDiv.innerHTML += `<a href="${link}"> <img src="${thumbnail}" alt="Capa do Livro"> </a>`; //cria a imagem do livro com o link junto
-                    //innerHTLM leva um elemento html pro index.html
-                    }
-
-                results.appendChild(bookDiv);
-            });
-            
         }
     </script>
 </body>
