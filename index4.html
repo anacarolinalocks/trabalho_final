@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Young Reader</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Young Reader</h1>
-    <input type="text" id="searchInput" placeholder="Digite o título do livro">
-    <button onclick="searchBooks()">Buscar Livro</button>
 
+    <div class="procura">
+        <input class="busca" type="text" id="searchInput" placeholder="Digite o título do livro...">
+        <button class="botao" onclick="searchBooks()">Buscar Livro</button>
+    </div>
+    
     <div id="results"></div>
 
     <script>
@@ -39,10 +42,12 @@
                 let title = book.volumeInfo.title;
                 let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
                 let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
+                let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
                 
                 let bookElement = document.createElement('div');
                 bookElement.innerHTML = `
                     <h2>${title}</h2>
+                    <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
                     <hr>

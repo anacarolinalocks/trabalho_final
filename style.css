@@ -1,0 +1,31 @@
+body{
+    background-color:  blanchedalmond;
+}
+
+.botao{
+    background-color: rgb(226, 148, 241);
+    border-radius: 30px;
+    height: 35px;
+    width: 110px;
+}
+
+.busca{
+    background-color: cornsilk;
+    border-radius: 30px;
+    height: 30px;
+    width: 300px;
+}
+
+h1{
+    font-family: garamond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.procura{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
