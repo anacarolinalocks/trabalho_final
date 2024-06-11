@@ -39,20 +39,25 @@
             }
 
             books.forEach(book => {
+                let id = book.id;
                 let title = book.volumeInfo.title;
                 let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
                 let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
                 let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
-                
+                console.log(`ID DO LIVRO ${title} = ${id}`)
                 let bookElement = document.createElement('div');
                 bookElement.innerHTML = `
-                    <h2>${title}</h2>
+                    <h2>${title} <img class="estrela" onclick="" src="estrela amarela.png" alt=""> </h2>
                     <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
                     <hr>
                 `;
                 resultsContainer.appendChild(bookElement);
+                let estrelas = bookElement.querySelector(".estrela")
+                estrelas.addEventListener("click", function() {
+                    estrelas.style.filter="greyscale(0)"
+                })
             });
         }
     </script>

@@ -1,5 +1,6 @@
 body{
     background-color:  blanchedalmond;
+    font-family: sans-serif;
 }
 
 .botao{
@@ -28,4 +29,10 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.estrela{
+    width: 30px;
+    height: 30px;
+    filter: grayscale(100);
 }
