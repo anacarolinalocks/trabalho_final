@@ -3,13 +3,10 @@ const connection = require('../config/db');
 const dotenv = require('dotenv').config();
 
 async function storeTask(request, response){
-    
-    const params = Array(
-        request.body.title,
-        request.body.description
-    );
 
-    const query = "INSERT INTO tasks(title, description) VALUES(?,?)";
+    const params = Array(request.body.id_livro, request.body.nome_livro)
+ 
+    const query = "INSERT INTO young_favoritos(id_livro, nome_livro) values(?,?)";
 
     connection.query(query, params, (err, results) => {
         if(results) {
@@ -31,6 +28,7 @@ async function storeTask(request, response){
         }
     })
 }
+
 module.exports = {
     storeTask
 }

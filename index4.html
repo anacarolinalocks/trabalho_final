@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Young Reader</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Young Reader</h1>
 
@@ -13,53 +15,63 @@
         <input class="busca" type="text" id="searchInput" placeholder="Digite o título do livro...">
         <button class="botao" onclick="searchBooks()">Buscar Livro</button>
     </div>
-    
+
     <div id="results"></div>
 
     <script>
+        let data = { id_livro, nome_livro, autor_livro };
+
+        const response = fecth("http://localhost:3000/api/store/book", {
+            method: "POST",
+            header: {},
+            body: JSON.stringfy(data)
+        });
+
+
         function searchBooks() {
-            let searchInput = document.getElementById('searchInput').value;
-            let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
+                let searchInput = document.getElementById('searchInput').value;
+                let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    displayResults(data.items);
-                })
-                .catch(error => console.error('Erro ao buscar livros:', error));
-        }
-
-        function displayResults(books) {
-            let resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            if (books.length === 0) {
-                resultsContainer.innerHTML = 'Nenhum resultado encontrado.';
-                return;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data.items);
+                    })
+                    .catch(error => console.error('Erro ao buscar livros:', error));
             }
 
-            books.forEach(book => {
-                let id = book.id;
-                let title = book.volumeInfo.title;
-                let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
-                let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
-                let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
-                console.log(`ID DO LIVRO ${title} = ${id}`)
-                let bookElement = document.createElement('div');
-                bookElement.innerHTML = `
+        function displayResults(books) {
+                let resultsContainer = document.getElementById('results');
+                resultsContainer.innerHTML = '';
+
+                if (books.length === 0) {
+                    resultsContainer.innerHTML = 'Nenhum resultado encontrado.';
+                    return;
+                }
+
+                books.forEach(book => {
+                    let id = book.id;
+                    let title = book.volumeInfo.title;
+                    let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
+                    let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
+                    let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
+                    console.log(`ID DO LIVRO ${title} = ${id}`)
+                    let bookElement = document.createElement('div');
+                    bookElement.innerHTML = `
                     <h2>${title} <img class="estrela" onclick="" src="estrela amarela.png" alt=""> </h2>
                     <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
                     <hr>
                 `;
-                resultsContainer.appendChild(bookElement);
-                let estrelas = bookElement.querySelector(".estrela")
-                estrelas.addEventListener("click", function() {
-                    estrelas.style.filter="greyscale(0)"
-                })
-            });
-        }
+                    resultsContainer.appendChild(bookElement);
+                    let estrelas = bookElement.querySelector(".estrela")
+                    estrelas.addEventListener("click", function () {
+                        estrelas.style.filter = "greyscale(0)"
+                    })
+                });
+            }
     </script>
 </body>
+
 </html>
