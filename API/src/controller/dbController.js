@@ -5,8 +5,9 @@ const dotenv = require('dotenv').config();
 async function storeTask(request, response){
 
     const params = Array(request.body.id_livro, request.body.nome_livro)
+    console.log(params)
  
-    const query = "INSERT INTO young_favoritos(id_livro, nome_livro) values(?,?)";
+    const query = "INSERT INTO young_favoritos(id_book, nome_livro) values(?,?)";
 
     connection.query(query, params, (err, results) => {
         if(results) {
@@ -18,6 +19,7 @@ async function storeTask(request, response){
                     data: results
                 })
         } else {
+            console.log(err)
             response
                 .status(400)
                 .json({

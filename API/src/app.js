@@ -7,6 +7,6 @@ const app = express();
 app.set('port', process.env.PORT || 3003);
 app.use(express.json());
 app.use(cors());
-app.use('/API', taskRouter);
+app.use('/api', taskRouter);
 
 module.exports = app;
