@@ -34,5 +34,9 @@ h1{
 .estrela{
     width: 30px;
     height: 30px;
+   
+}
+
+.estrela.pb {
     filter: grayscale(100);
 }

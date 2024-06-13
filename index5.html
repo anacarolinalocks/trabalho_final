@@ -19,37 +19,14 @@
     <div id="results"></div>
 
     <script>
-        // let data = { id_livro, nome_livro, autor_livro };
-
-    
-
-        function toggleEstrela(element, id, nome) {
-            let estrela = element;
-
-            console.log(id)
-            estrela.classList.toggle('pb')
-            let data = { id_livro, nome_livro};
-
-                const response = fecth("http://localhost:3000/api/store/book", {
-                    method: "POST",
-                    header: {},
-                    body: JSON.stringfy(data)
-                });
-
-                
-
-
+        function toggleEstrela(element) {
+            console.log(elk)
+            if (element.style.filter === 'greyscale(0)') {
+                element.style.filter = 'greyscale(100);'
+            } else {
+                element.style.filter = 'greyscale(0);'
+            }
         }
-
-        // function toggleEstrela(elemento) {
-        //             console.log("teste")
-        //             var estrela = elemento
-        //             if (estrela.getAttribute('src') === 'estrelinha cinza.jpg') {
-        //                 estrela.setAttribute('src', 'estrela amarela.png');
-        //             } else {
-        //                 estrela.setAttribute('src', 'estrelinha cinza.jpg');
-        //             }
-        //         }
 
         function searchBooks() {
             let searchInput = document.getElementById('searchInput').value;
@@ -73,28 +50,21 @@
             }
 
             books.forEach(book => {
-
-                   
-
-              
-
-
                 let id = book.id;
                 let title = book.volumeInfo.title;
                 let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
                 let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
                 let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
-                console.log(`ID DO LIVRO ${title} = ${id}`)
+
                 let bookElement = document.createElement('div');
                 bookElement.innerHTML = `
-                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}')" src="estrela amarela.png" alt=""> </h2>
+                    <h2>${title} <img class="estrela" onclick="toggleEstrela(this)" src="estrela amarela.png" alt=""> </h2>
                     <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
                     <hr>
                 `;
                 resultsContainer.appendChild(bookElement);
-
             });
         }
     </script>
