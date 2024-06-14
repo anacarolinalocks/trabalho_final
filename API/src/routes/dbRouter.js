@@ -3,6 +3,6 @@ const router = Router();
 
 const { storeTask } = require('../controller/dbController');
 
-router.post('/store/task', storeTask);
+router.post('/store/book', storeTask);
 
 module.exports = router;
