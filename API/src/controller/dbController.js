@@ -4,10 +4,10 @@ const dotenv = require('dotenv').config();
 
 async function storeTask(request, response){
 
-    const params = Array(request.body.id_livro, request.body.nome_livro)
-    console.log(params)
+    const params = Array(request.body.id, request.body.nome)
+    console.log(request.body)
  
-    const query = "INSERT INTO young_favoritos(id_book, nome_livro) values(?,?)";
+    const query = "INSERT INTO young_favoritos(id_book, titulo) values(?,?)";
 
     connection.query(query, params, (err, results) => {
         if(results) {
