@@ -26,14 +26,16 @@
         function toggleEstrela(element, id, nome) {
             let estrela = element;
 
-            console.log(id)
+            // console.log(id)
             estrela.classList.toggle('pb')
-            let data = { id_livro, nome_livro};
+            let data = { id, nome};
 
-                const response = fecth("http://localhost:3000/api/store/book", {
+                const response = fetch("http://localhost:3000/api/store/book", {
                     method: "POST",
-                    header: {},
-                    body: JSON.stringfy(data)
+                    headers:{
+                        "Content-type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify(data)
                 });
 
                 
@@ -73,8 +75,6 @@
             }
 
             books.forEach(book => {
-
-                   
 
               
 
