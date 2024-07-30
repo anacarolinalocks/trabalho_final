@@ -4,26 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Young Reader</title>
+    <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-    <h1>Young Reader</h1>
-    <input type="text" id="searchInput" placeholder="Digite o título do livro">
-    <button onclick="searchBooks()">Buscar Livro</button>
-
-    <div id="results"></div>
-
-    <script>
-        function searchBooks() {
-            let searchInput = document.getElementById('searchInput').value;
-            let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    displayResults(data.items);
-                })
-                .catch(error => console.error('Erro ao buscar livros:', error));
-        }
-    </script>
+    <div class="log">
+        <h1>Login</h1>
+        <input class="input" placeholder="email" type="text">
+        <input class="input" placeholder="senha" type="text">
+        <button class="botao">entrar</button>
+    </div>
 </body>
 </html>
