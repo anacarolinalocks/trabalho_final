@@ -1,4 +1,4 @@
-const connection = require('/config/db');
+const connection = require('../config/db');
 const dotenv = require('dotenv').config();
 async function storeUser(req, res){
 
@@ -8,7 +8,7 @@ async function storeUser(req, res){
         req.body.senha
     );
 
-    const query = "INSERT INSERT young_user(nome, email, senha) VALUES(?, ?, ?)";
+    const query = "INSERT INSERT young_user(name, email, senha) VALUES(?, ?, ?)";
 
     connection.query(query, parms, (err, results) =>{
         if(results){
@@ -16,7 +16,7 @@ async function storeUser(req, res){
             .status(201)
             .json({
                 success: true,
-                message: "Seucess",
+                message: "Success",
                 data: results
             })
         }else{
