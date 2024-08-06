@@ -19,7 +19,24 @@
     
     </div>
     <script>
-        
+         let inputNome = document.getElementById('nome').value;
+         let inputEmail = document.getElementById('email').value; 
+         let InputSenha = document.getElementById('senha').value;
+
+         function toggleEstrela(nome, email, senha) {
+
+                const response = fetch("http://localhost:3000/api/store/book", {
+                    method: "POST",
+                    headers:{
+                        "Content-type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                
+
+
+        }
     </script>
 </body>
 </html>

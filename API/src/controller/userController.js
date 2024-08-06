@@ -8,5 +8,29 @@ async function storeUser(req, res){
         req.body.
     );
 
-    cosnt query = 
+    const query = "INSERT INSERT young_user(name, email, senha) VALUES(?, ?, ?)";
+
+    connection.query(query, parms, (err, results) =>{
+        if(results){
+            res
+            .status(201)
+            .json({
+                success: true,
+                message: "Success",
+                data: results
+            })
+        }else{
+            res
+            .status(400)
+            .json({
+                seccess: false,
+                message:"Error",
+                sql: err
+            })
+        }
+    })
+}
+
+module.exports = {
+    storeUser
 }
