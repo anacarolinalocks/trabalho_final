@@ -18,10 +18,7 @@
 
     <div id="results"></div>
 
-    <script>
-        // let data = { id_livro, nome_livro, autor_livro };
-
-    
+    <script>    
 
         function toggleEstrela(element, id, nome) {
             let estrela = element;
@@ -42,16 +39,6 @@
 
 
         }
-
-        // function toggleEstrela(elemento) {
-        //             console.log("teste")
-        //             var estrela = elemento
-        //             if (estrela.getAttribute('src') === 'estrelinha cinza.jpg') {
-        //                 estrela.setAttribute('src', 'estrela amarela.png');
-        //             } else {
-        //                 estrela.setAttribute('src', 'estrelinha cinza.jpg');
-        //             }
-        //         }
 
         function searchBooks() {
             let searchInput = document.getElementById('searchInput').value;
@@ -75,9 +62,6 @@
             }
 
             books.forEach(book => {
-
-              
-
 
                 let id = book.id;
                 let title = book.volumeInfo.title;

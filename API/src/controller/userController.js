@@ -1,16 +1,20 @@
-const connection = require('/config/db');
+const connection = require('../config/db');
 const dotenv = require('dotenv').config();
+
 async function storeUser(req, res){
 
-    const parms = Array(
-        req.body.name,
+    const params = Array(
+        req.body.nome,
         req.body.email,
-        req.body.
+        req.body.senha
     );
+    console.log(params)
 
-    const query = "INSERT INSERT young_user(name, email, senha) VALUES(?, ?, ?)";
+    const query = "INSERT INTO young_user(name, email, senha) VALUES(?, ?, ?)";
 
-    connection.query(query, parms, (err, results) =>{
+    connection.query(query, params, (err, results) =>{
+        console.log(err,results)
+
         if(results){
             res
             .status(201)
