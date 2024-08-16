@@ -10,16 +10,16 @@
 
 <body>
 
-    <div class="cad">
+    <form class="cad">
         <h1>Cadastro</h1>
-        <input class="input" placeholder="nome" type="text" id="nome">
-        <input class="input" placeholder="email" type="text" id="email">
-        <input class="input" placeholder="senha" type="text" id="senha">
-        <input class="input" placeholder="confirmar senha" type="text">
+        <input class="input" required placeholder="nome" type="text" id="nome">
+        <input class="input" required placeholder="email" type="email" id="email">
+        <input class="input" required placeholder="senha" type="password" id="senha">
+        <input class="input" required placeholder="confirmar senha" type="password">
         <button class="botao" onclick="cadastrar(event)">cadastrar</button>
-        <a class="botao" href="login.html">login</a>
+        <a class="botao" href="../front/login/login.html">login</a>
 
-    </div>
+    </form>
     <script src="./script.js"></script>
 </body>
 

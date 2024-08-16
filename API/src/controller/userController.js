@@ -10,17 +10,14 @@ async function storeUser(req, res){
     );
     console.log(params)
 
-<<<<<<< HEAD
     const query = "INSERT INTO young_user(name, email, senha) VALUES(?, ?, ?)";
 
-    connection.query(query, params, (err, results) =>{
+    connection.query(query, params,(err, results) => {
         console.log(err,results)
 
-=======
     const query = "INSERT INSERT young_user(name, email, senha) VALUES(?, ?, ?)";
 
     connection.query(query, parms, (err, results) =>{
->>>>>>> 54b3d2b625d7aa97a5505db8d49eaafdcd8a41fc
         if(results){
             res
             .status(201)
@@ -39,6 +36,8 @@ async function storeUser(req, res){
             })
         }
     })
+})
+
 }
 
 module.exports = {
