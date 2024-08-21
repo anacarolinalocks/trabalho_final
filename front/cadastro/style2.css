@@ -17,7 +17,8 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    background-color: blue;
+    background-color: rgba(228, 210, 210, 0.514);
+    padding: 2vh;
     gap: .8vw; 
 }
 

@@ -27,7 +27,7 @@
             estrela.classList.toggle('pb')
             let data = { id, nome};
 
-                const response = fetch("http://localhost:3000/api/store/book", {
+                const response = fetch("http://localhost:3000/API/store/book", {
                     method: "POST",
                     headers:{
                         "Content-type": "application/json; charset=UTF-8"
@@ -35,8 +35,7 @@
                     body: JSON.stringify(data)
                 });
 
-                
-
+        
 
         }
 
@@ -71,13 +70,15 @@
                 console.log(`ID DO LIVRO ${title} = ${id}`)
                 let bookElement = document.createElement('div');
                 bookElement.innerHTML = `
-                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}')" src="estrela amarela.png" alt=""> </h2>
+                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}')" src="../assets/estrela amarela.png" alt=""> </h2>
                     <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
                     <hr>
                 `;
                 resultsContainer.appendChild(bookElement);
+
+                
 
             });
         }
