@@ -25,5 +25,6 @@ const response = await fetch("http://localhost:3000/api/get/user", {
 const go = document.getElementById("botao");
 
 go.addEventListener('click', () => {
+    alert('login feito');
     window.location.href = "../principal/principal.html";
 });
