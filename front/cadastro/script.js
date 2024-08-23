@@ -7,7 +7,6 @@ button.onclick = async function () {
     let senha = document.getElementById('senha').value;
 
     let data = { nome, email, senha};
-
     const response = await fetch("http://localhost:3000/API/cadastro", {
         method: "POST",
         headers: {
@@ -23,10 +22,5 @@ next.addEventListener('click', () => {
     window.location.href = "../login/login.html";
 });
 
-const go = document.getElementById("handleSubmit");
-
-go.addEventListener('click', () => {
-    window.location.href = "../login/login.html";
-});
 
 

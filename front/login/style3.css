@@ -1,9 +1,10 @@
 body{
-    background-image:url(castelo_LE_auto_x2.jpg);
+    background-image:url(../assets/castelo_LE_auto_x2.jpg);
     width: 100%;
-    height: 999px;
-    background-position: center; /* Para centralizar a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
+    height: 100vh; /* Altura desejada para o div */
+     background-position: center; /*Para centralizar a imagem */
+    background-size: cover;
+    background-repeat: no-repeat; /*Evita repetição da imagem */
     overflow: hidden;
     display: flex;
     align-items: center;
