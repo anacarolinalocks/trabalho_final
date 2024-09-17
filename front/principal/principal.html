@@ -9,33 +9,42 @@
 </head>
 
 <body>
-    <h1>Young Reader</h1>
+    <header>
+        <img src="../assets/profile.png" alt="" class="imgProfile">
 
-    <div class="procura">
-        <input class="busca" type="text" id="searchInput" placeholder="Digite o título do livro...">
-        <button class="botao" onclick="searchBooks()">Buscar Livro</button>
-    </div>
+        <h1>Young Reader</h1>
+
+        <div class="procura">
+            <input class="busca" type="text" id="searchInput" placeholder="Digite o título do livro...">
+            <img src="../assets/lupa.png" alt="" class="botao" onclick="searchBooks()">
+        </div>
+
+    </header>
+
 
     <div id="results"></div>
 
-    <script>    
+
+    <!-- -------------java script---------------- -->
+
+    <script>
 
         function toggleEstrela(element, id, nome) {
             let estrela = element;
 
             // console.log(id)
             estrela.classList.toggle('pb')
-            let data = { id, nome};
+            let data = { id, nome };
 
-                const response = fetch("http://localhost:3000/API/store/book", {
-                    method: "POST",
-                    headers:{
-                        "Content-type": "application/json; charset=UTF-8"
-                    },
-                    body: JSON.stringify(data)
-                });
+            const response = fetch("http://localhost:3000/API/store/book", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                },
+                body: JSON.stringify(data)
+            });
 
-        
+
 
         }
 
@@ -78,11 +87,11 @@
                 `;
                 resultsContainer.appendChild(bookElement);
 
-                
+
 
             });
         }
-        
+
     </script>
 </body>
 
