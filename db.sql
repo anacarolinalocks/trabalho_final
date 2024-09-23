@@ -27,8 +27,10 @@ SELECT * FROM young_categorias;
 DROP TABLE young_favoritos;
 
 CREATE TABLE young_favoritos(
+	id INT AUTO_INCREMENT PRIMARY KEY,
 	id_book INT PRIMARY KEY AUTO_INCREMENT,
-    estrelas INT
+    estrelas INT,
+    FOREIGN KEY (id) REFERENCES young_user(id)
 );
 
 SELECT * FROM young_favoritos;
