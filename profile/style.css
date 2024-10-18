@@ -1,0 +1,54 @@
+body{
+    background-color:  blanchedalmond;
+}
+
+.fav{
+    background-color: white;
+}
+.coments{
+    background-color: white;
+    height: 50vh;
+    width: 100vw;
+}
+.imgProfile{
+    position: absolute;
+    height: 6vh;
+    width: 3vw;
+    border-radius: 100px;
+    margin: 1vh;
+}
+
+.busca{
+    background-color: cornsilk;
+    border-radius: 30px;
+    height: 3.5vh;
+    width: 10vw;
+    padding-left: 1vh;
+}
+
+header{
+    background-color: blueviolet;
+    height: 12vh;
+}
+
+* {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.procura{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+}
+
+.botao{
+    position: absolute;
+    margin-left: 16vh;
+    border-radius: 30px;
+    height: 3vh;
+    width: 2vw;
+}

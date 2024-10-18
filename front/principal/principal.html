@@ -28,6 +28,7 @@
     <!-- -------------java script---------------- -->
 
     <script>
+<<<<<<< HEAD
         console.log(localStorage.getItem('userId'));
         function toggleEstrela(element, id, nome) {
             let estrela = element;
@@ -58,6 +59,28 @@
         }
 
 
+=======
+
+        function toggleEstrela(element, id, nome) {
+            let estrela = element;
+
+            // console.log(id)
+            estrela.classList.toggle('pb')
+            let data = { id, nome };
+
+            const response = fetch("http://localhost:3000/API/store/book", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                },
+                body: JSON.stringify(data)
+            });
+
+
+
+        }
+
+>>>>>>> f3e754f0e059470df5252eb94bb4977a72039496
         function searchBooks() {
             let searchInput = document.getElementById('searchInput').value;
             let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
