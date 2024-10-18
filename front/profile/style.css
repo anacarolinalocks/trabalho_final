@@ -1,0 +1,55 @@
+* {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    font-family: sans-serif;    
+}
+
+header{
+    background-color: blueviolet;
+    height: 12vh;
+}
+
+.fav{
+    background-color: white;
+}
+
+.coments{
+    background-color: white;
+    height: 50vh;
+    width: 100vw;
+}
+.imgProfile{
+    position: absolute;
+    height: 6vh;
+    width: 3vw;
+    border-radius: 100px;
+    margin: 1vh;
+}
+
+main{
+    background-color: blanchedalmond;
+    height: 85vh;
+}
+
+header h1{
+    font-family: garamond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 5vh;
+}
+
+.title{
+    background-color: blanchedalmond;
+    margin: 0%;
+    padding: 2vh;
+}
+
+.coments{
+    background-color: blanchedalmond;
+    margin: 0%;
+    padding-left: 2vh;
+    font-size: 2.2vh;
+}

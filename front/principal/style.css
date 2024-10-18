@@ -1,0 +1,70 @@
+* {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+body{
+    background-color:  blanchedalmond;
+}
+
+.imgProfile{
+    position: absolute;
+    height: 6vh;
+    width: 3vw;
+    border-radius: 100px;
+    margin: 1vh;
+}
+
+.botao{
+    position: absolute;
+    margin-left: 16vh;
+    border-radius: 30px;
+    height: 3vh;
+    width: 2vw;
+}
+
+.botao img{
+    height:4vh;
+    width: 2vw;
+}
+
+.busca{
+    background-color: cornsilk;
+    border-radius: 30px;
+    height: 3.5vh;
+    width: 10vw;
+    padding-left: 1vh;
+}
+
+h1{
+    font-family: garamond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 5vh;
+}
+
+.procura{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+}
+
+.estrela{
+    width: 30px;
+    height: 30px;
+   
+}
+
+.estrela.pb {
+    filter: grayscale(100);
+}
+
+header{
+    background-color: blueviolet;
+    height: 12vh;
+}
