@@ -2,12 +2,11 @@ const connection = require('../config/db');
 // const { response } = require('../app');
 const dotenv = require('dotenv').config();
 
-<<<<<<< HEAD
 async function storeTask(request, response) {
-    const { id_user, id_book, titulo } = request.body; // Obtenha os dados corretos
-    const params = [id_user, id_book, titulo]; // Crie o array com os dados
+    const { id_user, id_book, titulo, thumbnail } = request.body; // Obtenha os dados corretos
+    const params = [id_user, id_book, titulo, thumbnail]; // Crie o array com os dados
 
-    const query = "INSERT INTO young_favoritos(id_user, id_book, titulo) VALUES (?, ?, ?)";
+    const query = "INSERT INTO young_favoritos(id_user, id_book, titulo, thumbnail) VALUES (?, ?, ?, ?)";
     
     connection.query(query, params, (err, results) => {
         if (results) {
@@ -27,8 +26,6 @@ async function storeTask(request, response) {
     });
 }
 
-
-=======
 async function storeTask(request, response){
 
     const params = Array(request.body.id, request.body.nome)
@@ -58,7 +55,6 @@ async function storeTask(request, response){
     })
 }
 
->>>>>>> f3e754f0e059470df5252eb94bb4977a72039496
 module.exports = {
     storeTask
 }

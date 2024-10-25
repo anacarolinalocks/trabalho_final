@@ -14,20 +14,6 @@ CREATE TABLE young_user(
 
 SELECT * FROM young_user;
 
-<<<<<<< HEAD
-
-=======
-DROP TABLE young_categorias;
-	
-CREATE TABLE young_categorias(
-	id_book INT PRIMARY KEY AUTO_INCREMENT,
-    classificação INT,
-    genero VARCHAR(255)
-);
-
-SELECT * FROM young_categorias;
->>>>>>> f3e754f0e059470df5252eb94bb4977a72039496
-
 DROP TABLE young_favoritos;
 
 CREATE TABLE young_favoritos(
@@ -43,14 +29,4 @@ DROP TABLE young_favoritos;
 
 SELECT * FROM young_favoritos;
 
-=======
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	id_book INT PRIMARY KEY AUTO_INCREMENT,
-    estrelas INT,
-    FOREIGN KEY (id) REFERENCES young_user(id)
-);
 
-SELECT * FROM young_favoritos;
-
-
->>>>>>> f3e754f0e059470df5252eb94bb4977a72039496

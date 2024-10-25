@@ -19,6 +19,17 @@ body{
     gap: .8vw;
 }
 
+.cad{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: rgba(228, 210, 210, 0.514);
+    padding: 2vh;
+    gap: .8vw; 
+}
+
 .input{
     display: flex;
     background-color: cornsilk;
