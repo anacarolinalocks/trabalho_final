@@ -1,0 +1,1 @@
+//SELECT * FROM young_favoritos WHERE id_user = ?

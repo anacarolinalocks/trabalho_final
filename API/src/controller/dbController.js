@@ -27,11 +27,11 @@ async function storeTask(request, response) {
 }
 
 async function storeTask(request, response){
-
-    const params = Array(request.body.id, request.body.nome)
+    
+    const params = Array(request.body.idUser, request.body.id, request.body.nome, request.body.thumbnail)
     console.log(request.body)
  
-    const query = "INSERT INTO young_favoritos(id_book, titulo) values(?,?)";
+    const query = "INSERT INTO young_favoritos(id_user, id_book, titulo, thumbnail) values(?,?,?,?)";
 
     connection.query(query, params, (err, results) => {
         if(results) {

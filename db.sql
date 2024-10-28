@@ -14,10 +14,7 @@ CREATE TABLE young_user(
 
 SELECT * FROM young_user;
 
-DROP TABLE young_favoritos;
-
 CREATE TABLE young_favoritos(
-<<<<<<< HEAD
 	id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_user INT NOT NULL,
 	id_book VARCHAR(255) NOT NULL,

@@ -57,12 +57,12 @@
                 .catch(error => console.error('Erro ao armazenar:', error));
         }
 
-        function toggleEstrela(element, id, nome) {
+        function toggleEstrela(element, id, nome, thumbnail) {
             let estrela = element;
-
+            let idUser = localStorage.getItem('userId')
             // console.log(id)
             estrela.classList.toggle('pb')
-            let data = { id, nome };
+            let data = { id, idUser, nome, thumbnail };
 
             const response = fetch("http://localhost:3000/API/store/book", {
                 method: "POST",
@@ -107,7 +107,7 @@
                 console.log(`ID DO LIVRO ${title} = ${id}`)
                 let bookElement = document.createElement('div');
                 bookElement.innerHTML = `
-                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}')" src="../assets/estrela amarela.png" alt=""> </h2>
+                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}', '${thumbnail}')" src="../assets/estrela amarela.png" alt=""> </h2>
                     <img src="${thumbnail}" alt="Capa do Livro">
                     <p><strong>Autores:</strong> ${authors}</p>
                     <p><strong>Descrição:</strong> ${description}</p>
