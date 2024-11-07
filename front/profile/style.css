@@ -53,3 +53,25 @@ header h1{
     padding-left: 2vh;
     font-size: 2.2vh;
 }
+
+.favoritos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.livro-favoritado {
+    text-align: center;
+}
+
+.livro-favoritado img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.livro-favoritado h2 {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
