@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId'); // Use o ID do usuário logado
     const favoritosContainer = document.querySelector('.favoritos');
 
-    fetch(`http://localhost:3000/api/favoritos/${userId}`)
+    fetch(`http://localhost:3003/api/favoritos/${userId}`)
         .then(response => response.json())
         .then(favoritos => {
             if (favoritos.length > 0) {

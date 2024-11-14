@@ -2,15 +2,17 @@
     padding: 0px;
     border: 0px;
     margin: 0px;
-    font-family: sans-serif;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
 }
 
-body{
-    background-color:  blanchedalmond;
+html{
+    background: #C164E0;
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
 }
 
 .imgProfile{
-    position: absolute;
     height: 6vh;
     width: 3vw;
     border-radius: 100px;
@@ -18,11 +20,11 @@ body{
 }
 
 .botao{
-    position: absolute;
-    margin-left: 16vh;
+    display: flex;
+    position: relative;
+    right: 25px;
     border-radius: 30px;
     height: 3vh;
-    width: 2vw;
 }
 
 .botao img{
@@ -31,10 +33,13 @@ body{
 }
 
 .busca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: cornsilk;
     border-radius: 30px;
     height: 3.5vh;
-    width: 10vw;
+    width: 20vw;
     padding-left: 1vh;
 }
 
@@ -55,16 +60,51 @@ h1{
 }
 
 .estrela{
-    width: 30px;
-    height: 30px;
-   
+    cursor: pointer;
+    width: 20px;
 }
 
 .estrela.pb {
     filter: grayscale(100);
 }
 
+#logo{
+    display: flex;
+    position: relative;
+    left: 13vh;
+    height: 20dvh;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 35vh;
+    padding-left: 35vh;
+    padding-top: 10vh;
+    text-align: justify;
+}
+
+.book img{
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.book h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book p{
+    padding: 10px;
+}
+
 header{
-    background-color: blueviolet;
-    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 17vh;
+    background-color: #9c3c9b;
 }

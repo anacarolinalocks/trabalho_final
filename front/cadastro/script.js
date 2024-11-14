@@ -17,7 +17,7 @@ button.onclick = async function (event) {
     let data = { nome, email, senha };
 
     try {
-        const response = await fetch("http://localhost:3000/API/cadastro", {
+        const response = await fetch("http://localhost:3003/API/cadastro", {
             method: "POST",
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -42,4 +42,3 @@ const next = document.getElementById("go_login");
 next.addEventListener('click', () => {
     window.location.href = "../login/login.html";
 });
-

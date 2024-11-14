@@ -36,6 +36,8 @@ body{
     border-radius: 30px;
     height: 30px;
     width: 20vw;
+    border: none;
+    padding: 1dvh;
 }
 
 .botao{
@@ -43,6 +45,12 @@ body{
     border-radius: 30px;
     height: 4vh;
     width: 10vw;
+    border: none;
+    cursor: pointer;
+}
+
+.botao:hover{
+    background-color: rgb(169, 0, 203);
 }
 
 .h1{

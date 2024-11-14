@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const senha = document.getElementById('senha').value;
 
         // Faz a requisição para verificar o login
-        const response = await fetch('http://localhost:3000/api/get/user', {
+        const response = await fetch('http://localhost:3003/api/get/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

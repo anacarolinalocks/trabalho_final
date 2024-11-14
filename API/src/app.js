@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const path = require("path")
 
 const swaggerOptions = {
     swaggerDefinition: {
@@ -22,6 +23,12 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+app.use(express.static(path.join(__dirname, '..', '..', 'front')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'front', 'principal', 'principal.html'));
+});
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.set('port', process.env.PORT || 3000);

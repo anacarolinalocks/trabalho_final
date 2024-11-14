@@ -5,123 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Young Reader</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <img src="../assets/profile.png" alt="" class="imgProfile" id="goProfile">
 
-        <h1>Young Reader</h1>
+        <img id="logo" src="../assets/YOUNG.png" alt="">
 
         <div class="procura">
             <input class="busca" type="text" id="searchInput" placeholder="Digite o título do livro...">
             <img src="../assets/lupa.png" alt="" class="botao" onclick="searchBooks()">
         </div>
-
     </header>
 
 
     <div id="results"></div>
 
-
-    <!-- -------------java script---------------- -->
-
-    <script>
-        console.log(localStorage.getItem('userId'));
-        function toggleEstrela(element, id, nome) {
-            let estrela = element;
-            estrela.classList.toggle('pb');
-
-            const userId = localStorage.getItem('userId'); // Obtém o ID do usuário
-            console.log(userId);
-
-            let data = { id_user: userId, id_book: id, titulo: nome }; // Inclui o ID do usuário e do livro
-            console.log(data);
-
-            fetch(`http://localhost:3000/api/store/book`, { // Altere a URL para a rota correta
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(result => {
-                    if (result.success) {
-                        alert('Tarefa armazenada com sucesso!');
-                    } else {
-                        alert('Erro ao armazenar a tarefa: ' + result.message);
-                    }
-                })
-                .catch(error => console.error('Erro ao armazenar:', error));
-        }
-
-        function toggleEstrela(element, id, nome, thumbnail) {
-            let estrela = element;
-            let idUser = localStorage.getItem('userId')
-            // console.log(id)
-            estrela.classList.toggle('pb')
-            let data = { id, idUser, nome, thumbnail };
-
-            const response = fetch("http://localhost:3000/API/store/book", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify(data)
-            });
-
-
-
-        }
-
-        function searchBooks() {
-            let searchInput = document.getElementById('searchInput').value;
-            let url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchInput);
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    displayResults(data.items);
-                })
-                .catch(error => console.error('Erro ao buscar livros:', error));
-        }
-
-        function displayResults(books) {
-            let resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            if (books.length === 0) {
-                resultsContainer.innerHTML = 'Nenhum resultado encontrado.';
-                return;
-            }
-
-            books.forEach(book => {
-
-                let id = book.id;
-                let title = book.volumeInfo.title;
-                let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
-                let description = book.volumeInfo.description ? book.volumeInfo.description : 'Descrição indisponível';
-                let thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
-                console.log(`ID DO LIVRO ${title} = ${id}`)
-                let bookElement = document.createElement('div');
-                bookElement.innerHTML = `
-                    <h2>${title} <img class="estrela pb" onclick="toggleEstrela(this, '${id}', '${title}', '${thumbnail}')" src="../assets/estrela amarela.png" alt=""> </h2>
-                    <img src="${thumbnail}" alt="Capa do Livro">
-                    <p><strong>Autores:</strong> ${authors}</p>
-                    <p><strong>Descrição:</strong> ${description}</p>
-                    <hr>
-                `;
-                resultsContainer.appendChild(bookElement);
-
-
-
-            });
-        }
-
-    </script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
